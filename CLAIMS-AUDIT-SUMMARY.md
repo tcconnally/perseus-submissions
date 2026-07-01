@@ -17,7 +17,7 @@
 
 1. ~~**MCTS does not exist** (CRITICAL)~~ → **FALSE / WITHDRAWN.** MCTS exists and is a substantial, tested product. The "we scanned the top 20 MCP servers" campaign is *feasible*, not blocked — scans have already been run and issues filed against real MCP repos per the maintainer. The anchor stat should be computed from those existing results.
 
-2. ~~**Both memory agents' engram quickstart crashes** (CRITICAL)~~ → **FIXED.** `EngramMemoryBackend` in perseus-agent-core was ported to speak MCP JSON-RPC stdio to Mneme (formerly Mimir; engram-rs successor): full `initialize` → `notifications/initialized` → `tools/list` → `tools/call` handshake, `MIMIR_BIN`/`ENGRAM_BIN` fallback. Both agents inherit it via the shared package.
+2. ~~**Both memory agents' engram quickstart crashes** (CRITICAL)~~ → **FIXED.** `EngramMemoryBackend` in perseus-agent-core was ported to speak MCP JSON-RPC stdio to Perseus Vault (formerly Mimir; engram-rs successor): full `initialize` → `notifications/initialized` → `tools/list` → `tools/call` handshake, `MIMIR_BIN`/`ENGRAM_BIN` fallback. Both agents inherit it via the shared package.
 
 3. ~~**rapid-agent "Gemini-powered" with no Gemini code** (HIGH)~~ → **FIXED.** The overclaim was removed from the README (rapid-agent PR #9).
 
@@ -28,12 +28,12 @@
 | rapid-agent | MEDIUM | Hybrid semantic+keyword+vector search | Keyword + optional ELSER; no vector |
 | rapid-agent | MEDIUM | ES\|QL aggregations in reflect | Plain search aggregations |
 | qwen-memory | MEDIUM | "Elastic hybrid search" | Older standalone keyword backend (shared-lib refactor narrows this) |
-| perseus | MEDIUM | Mneme (Mimir) tool names in README | 4+ example names don't exist (count of 23 is right) |
+| perseus | MEDIUM | Perseus Vault (formerly Mimir/Perseus Vault) tool names in README | 4+ example names don't exist (count of 23 is right) |
 | pr-pilot | MEDIUM | "90%+ autonomous" | Pipeline real; figure unmeasured |
 | pr-pilot | MEDIUM | "verifies fixes without human intervention" | No recorded end-to-end run artifact |
 | blast-radius | MEDIUM→partly fixed | Live `@blast-radius` on GitLab Duo | Was offline-only; PR #42 "make the agent runnable" closes much of this |
 | anna-recall | MEDIUM→fixed | tests workflow never ran | Branch trigger corrected to `master` |
-| anna-recall | LOW | Mneme (Mimir) "battle-tested" | Mneme (Mimir) is ~1 week old |
+| anna-recall | LOW | Perseus Vault (formerly Mimir/Perseus Vault) "battle-tested" | Perseus Vault (formerly Mimir/Perseus Vault) is ~1 week old |
 | qwen-memory | LOW | "gets smarter every time" | Mechanism real, adverb unmeasured |
 | MCTS | — | "120 analyzers, self-testing" | Verified ✓ (4 Windows-only test-env failures, not product) |
 | mimir | — | All claims verified | 23 tools, FTS5, fully local, MCP handshake smoke-tested ✓ |
@@ -44,7 +44,7 @@
 - qwen-memory unbounded prompt growth → token-budgeted recall context.
 - qwen-memory main crashed on import (bad merge) → fixed (PR #10).
 - rapid-agent Elastic stub → real Elasticsearch backend with ELSER fallback (PR #7).
-- anna-recall deadlock / dead-Mneme (Mimir) handling → reader-thread drain, stderr DEVNULL, restart-once + typed error; 15/15 tests.
+- anna-recall deadlock / dead-Perseus Vault (formerly Mimir/Perseus Vault) handling → reader-thread drain, stderr DEVNULL, restart-once + typed error; 15/15 tests.
 - MCTS per-analyzer error isolation + SARIF URI normalization → landed from the code review.
 
 ## Net read
@@ -53,4 +53,4 @@ Corrected, the portfolio is in strong shape. The two original CRITICALs were
 either a research error on my part (MCTS) or already fixed (engram); the HIGH
 was fixed too. What genuinely remains is a single editing pass on overclaims
 (vector search, ES|QL, "90%", "battle-tested") and the perseus README's wrong
-Mneme (Mimir) tool names. No discovered-fiction landmines left.
+Perseus Vault (formerly Mimir/Perseus Vault) tool names. No discovered-fiction landmines left.
